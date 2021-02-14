@@ -5,8 +5,7 @@ const searchBtn = document.getElementById('search-btn');
 const sliderBtn = document.getElementById('create-slider');
 const sliderContainer = document.getElementById('sliders');
 // selected image 
-let sliders = [];
-
+var sliders = [];
 
 // If this key doesn't work
 // Find the name in the url and go to their website
@@ -19,9 +18,6 @@ document.getElementById('search').addEventListener('keypress', (event) => {
         searchBtn.click();
     }
 });
-
-
-
 
 const getImages = (query) => {
     toggleSpinner()
@@ -46,16 +42,16 @@ const showImages = (images) => {
 
         // total images value
         const imgLength = images.length;
-        const total = document.getElementById('total').innerText = imgLength
+        var total = document.getElementById('total').innerText = imgLength
 
     })
     toggleSpinner()
 }
 
 let slideIndex = 0;
-const selectItem = (event, img, images) => {
+const selectItem = (event, img) => {
     let element = event.target
-    const itemAdded = element.classList.toggle('added')
+    element.classList.toggle('added')
     let item = sliders.indexOf(img);
     if (item === -1) {
         sliders.push(img);
@@ -63,9 +59,19 @@ const selectItem = (event, img, images) => {
         sliders.splice(item, 1)
     }
 
-    // Selected Images value
-    const selectedImg = sliders.length
+    selectedImg()
+}
+
+// selected images value
+const selectedImg = () => {
+    const selectedImg = sliders.length;
     const result = document.getElementById('selectedImg').innerText = selectedImg
+}
+
+// clear value;
+const nullValue = () => {
+    document.getElementById('selectedImg').innerText = 0
+    total.innerText = 0
 }
 
 var timer
@@ -147,9 +153,14 @@ searchBtn.addEventListener('click', function() {
     clearInterval(timer);
     const search = document.getElementById('search');
     getImages(search.value)
-    sliders.length = 0;
-})
 
+    // clear input value
+    search.value = "";
+    duration.value = "";
+
+    sliders.length = 0;
+    nullValue()
+})
 
 sliderBtn.addEventListener('click', function() {
     createSlider()

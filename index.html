@@ -32,21 +32,17 @@
             </div>
         </div>
 
-
-
         <section class="images">
             <div class="justify-content-evenly align-items-center mt-3 gallery-header mb-2">
                 <h3>Total Images:<span id="total">0</span></h3>
                 <h3>Selected Images:<span id="selectedImg">0</span></h3>
                 <h4 class="head-title text-center">Select image for create slider</h4>
                 <div class="input-group col-md-3 mb-2 mb-md-0">
-                    <input class="form-control" id="duration" placeholder="slider change duration">
+                    <input type="number" class="form-control" id="duration" placeholder="slider change duration">
                 </div>
                 <button id="create-slider" class="btn btn-primary px-5">Create slider</button>
 
             </div>
-
-
 
             <div class="row gallery mt-5">
 
@@ -58,7 +54,7 @@
 
         <!-- slider -->
         <div>
-            <h3 id="err" style="display: none; color:red">Duration can not be negative. Please input right value.Otherwise it shows default value[Default value = 1000ms].</h3>
+            <h3 id="err" style="display: none; color:red; text-align: center;">Duration can not be negative. Please input the right value.Otherwise it will be considered as default value[Default value = 1000ms].</h3>
             <div class="main">
                 <section class="mt-5" id="sliders">
 
@@ -69,9 +65,6 @@
                 </div>
             </div>
         </div>
-
-
-
 
     </div>
     <!-- Optional JavaScript -->
